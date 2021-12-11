@@ -1,0 +1,10 @@
+.styleBG {background-image:url(../imgs/fondo1.jpeg);
+    background-size: cover;
+    background-position:center;
+    text-align: center;
+    padding: 25px;
+    font-size: 60px;
+    color: rgb(255, 255, 255);
+    box-shadow: 1px 9px 15px 0px rgb(248, 255, 255);
+
+    font-weight: 900; }

@@ -2,6 +2,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Logo from "../imgs/adidas-9.svg"
+import CartWidget from '../Cart/CartWidget';
 
 
 
@@ -25,12 +26,15 @@ function Barnav() {
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
-                            <Nav.Link href="#action1">Shoes</Nav.Link>
+                            <Nav.Link href="/cart">Shoes</Nav.Link>
                             <Nav.Link href="#action2">Clothes</Nav.Link>
                             <Nav.Link href="#action3">Accesories</Nav.Link>
                         </Nav>
                 
                         </Navbar.Collapse>
+
+                        <CartWidget />
+
                     </Container>
                 </Navbar>
             

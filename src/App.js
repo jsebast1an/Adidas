@@ -2,6 +2,7 @@ import Barnav from './components/Navbar/BarNav';
 
 /* BOOTSTRAP */
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
 
 function App() {
@@ -9,6 +10,8 @@ function App() {
     <div>
 
       <Barnav />
+
+      <ItemListContainer></ItemListContainer>
 
     </div>
   );
