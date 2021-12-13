@@ -26,7 +26,6 @@ function ItemListContainer() {
         
     },[])
 
-    console.log(loading)
     return (
         <div>
             <Main></Main>   
