@@ -3,7 +3,10 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Logo from "../imgs/adidas-9.svg"
 import CartWidget from '../Cart/CartWidget';
+import {Link} from "react-router-dom";
 
+/* CSS */
+import "../Navbar/Barnav.css"
 
 
 function Barnav() {
@@ -11,14 +14,17 @@ function Barnav() {
         <div>
                 <Navbar bg="light" expand="lg">
                     <Container >
-                    <img
-                        src={Logo}
-                        width="30"
-                        height="30"
-                        className="mx-1"
-                        alt="React Bootstrap logo"
-                    />
-                        <Navbar.Brand href="#">Adidas</Navbar.Brand>
+                        <Link to="/" style={{ textDecoration: 'none' }}>
+                                <img
+                                    src={Logo}
+                                    width="35"
+                                    height="35"
+                                    className="mx-2"
+                                    alt="logo"
+                                    />
+                                    <Navbar.Brand href="#">Adidas</Navbar.Brand>
+                        </Link>
+
                         <Navbar.Toggle aria-controls="navbarScroll" />
                         <Navbar.Collapse id="navbarScroll">
                         <Nav
@@ -26,9 +32,9 @@ function Barnav() {
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
-                            <Nav.Link href="/cart">Shoes</Nav.Link>
-                            <Nav.Link href="#action2">Clothes</Nav.Link>
-                            <Nav.Link href="#action3">Accesories</Nav.Link>
+                            <Link to="/category/shoes" className='styleBN'>Shoes  </Link>
+                            <Link to="/category/clothes" className='styleBN'>Clothes </Link>
+                            <Link to="/category/accesories" className='styleBN'>Accesories </Link>
                         </Nav>
                 
                         </Navbar.Collapse>

@@ -1,10 +1,12 @@
-import {useState, useEffect} from 'react'
 import ItemList from '../ItemList/ItemList'
 import {getItems} from "../getItems"
 import Spinner from "react-bootstrap/Spinner"
 import "./ItemListContainer.css"
 import Main from '../Bootstrap/Main'
 
+/* HOOKS */
+import {useState, useEffect} from 'react'
+import { useParams } from 'react-router-dom'
 
 
 
@@ -12,19 +14,25 @@ function ItemListContainer() {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
 
+    const {categoryID} = useParams()
 
     useEffect(() => {
-        setTimeout(() => {
-            getItems
-            .then(res => setProducts(res))
-            .catch(err => console.log("Error: " + err))
-            .finally(setLoading(false))
+            if (categoryID) {
+
+                getItems
+                .then(res => setProducts(res.filter(prod => prod.type === categoryID)))
+                .catch(err => console.log("Error: " + err))
+                .finally(setLoading(false))
+                
+            } else {
+                getItems
+                .then(res => setProducts(res))
+                .catch(err => console.log("Error: " + err))
+                .finally(setLoading(false))
+                
+            }
         
-            
-        }, 1500);
-        
-        
-    },[])
+    },[categoryID])
 
     return (
         <div>
