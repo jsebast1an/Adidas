@@ -1,19 +1,37 @@
 import getItems from "../getItems"
-import {useState, useEffect} from "react"
 import ItemDetail from "../ItemDetail/ItemDetail"
 
+/* HOOKS */
+import {useState, useEffect} from "react"
+import {useParams} from "react-router-dom"
+ 
 
 
 function ItemDetailContainer() {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
-    useEffect(() => {
-        getItems
-        .then(res => setProducts(res) )
-        .catch(err => console.log(err))
-        .finally(setLoading(false))
 
-    }, [])
+    const {detailID} = useParams()
+
+    useEffect(() => {
+
+        if (detailID) {
+
+            getItems
+            .then(res => setProducts(res.find(prod => prod.id === parseInt(detailID)  )) )
+            .catch(err => console.log(err))
+            .finally(setLoading(false))
+
+        } else {
+
+            getItems
+            .then(res => setProducts(res) )
+            .catch(err => console.log(err))
+            .finally(setLoading(false))
+            
+        }
+
+    }, [detailID])
 
     console.log(products)
 

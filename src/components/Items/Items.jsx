@@ -1,5 +1,6 @@
 import Card from "react-bootstrap/Card"
 import Button from "react-bootstrap/Button"
+import {Link} from "react-router-dom"
 
 
 function Items({prod}) {
@@ -12,8 +13,10 @@ function Items({prod}) {
                     <Card.Title as="h3">{prod.nombre}</Card.Title>
                     <Card.Text as="h4">{prod.year}</Card.Text>
                     <Card.Text >Precio: {prod.precio} ARS</Card.Text>
-             
+                    
+                    <Link to={`/detail/${prod.id}`}>
                         <Button variant="primary">Detalles del producto</Button>
+                    </Link>
           
                 </Card.Body>
             </Card>
