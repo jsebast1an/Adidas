@@ -1,6 +1,8 @@
 import {useState} from "react";
-import Button from "react-bootstrap/Button"
+import {Link} from "react-router-dom"
 import {BsCheck} from "react-icons/bs";
+import { FaShoppingCart } from "react-icons/fa";
+import Button from "react-bootstrap/Button"
 import "./CambioBtn.css"
 
 const PrimerBoton = ({primerCambio}) => {
@@ -20,23 +22,28 @@ const SegundoBoton = ({onAdd}) => {
 
 export const TercerBoton = () => {
     return (
-        <Button variant="success" size="lg" className="hvr-buzz-out">  Confirmado <BsCheck /></Button>
-    )
+        <>
+                <Button variant="success" size="lg" className="hvr-buzz-out" >  Confirmado <BsCheck /></Button>
+            <Link to="/cart">
+                <Button variant="warning"  className="hvr-buzz-out" >  Ir al carrito <FaShoppingCart /></Button>
+            </Link>
+        </>
+        )
     
 }
 
 export default function CambioBtn({onAdd}) {
 
-    const [boton, setBoton] = useState("botonAdd")
+    const [boton, setBoton] = useState(true)
 
     const botonAgregar = () => {
-        setBoton("botonConfirmar")
+        setBoton(false)
     }
 
     return (
         <>
             {
-                boton === "botonAdd" ?
+                boton ?
                 <PrimerBoton primerCambio={botonAgregar} /> :
                 <SegundoBoton onAdd={onAdd} />
 
