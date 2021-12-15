@@ -1,10 +1,13 @@
-import { FaShoppingCart } from "react-icons/fa";
 import Button from "react-bootstrap/Button"
+import { FaShoppingCart } from "react-icons/fa";
+import {Link} from "react-router-dom";
 
 function CartWidget() {
     return (
         <div>
-            <Button variant="warning"> <FaShoppingCart /> </Button>
+            <Link to="/cart">
+                <Button variant="warning"> <FaShoppingCart /> </Button>
+            </Link>
         </div>
     )
 }

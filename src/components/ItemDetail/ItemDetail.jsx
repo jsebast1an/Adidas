@@ -3,6 +3,7 @@ import ListGroupItem from "react-bootstrap/ListGroupItem"
 import ListGroup from "react-bootstrap/ListGroup"
 import Accordion from "react-bootstrap/Accordion"
 
+import ItemCount from "../ItemCount/ItemCount"
 import "./ItemDetail.css"
 
 function ItemDetail({item}) {
@@ -39,7 +40,7 @@ function ItemDetail({item}) {
                     </Accordion>
                     
 
-             {/*        <Card.Text><ItemCount stock={item.stock} initial={1} item={item} /></Card.Text> */}
+                    <Card.Text><ItemCount stock={item.stock} initial={1} item={item} /></Card.Text>
                 </Card.Body>
             </Card>
         </div>

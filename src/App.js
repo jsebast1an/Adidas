@@ -11,6 +11,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
+import Cart from './components/Cart/Cart';
 
 
 function App() {
@@ -29,6 +30,8 @@ function App() {
           <Route exact path="/" element={ <ItemListContainer /> } />
           <Route exact path="/category/:categoryID" element={ <ItemListContainer /> } />
           <Route exact path="/detail/:detailID" element={ <ItemDetailContainer /> } />
+          
+          <Route exact path="/cart" element={ <Cart></Cart> } />
         </Routes>
 
       </>
