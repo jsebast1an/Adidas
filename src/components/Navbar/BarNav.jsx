@@ -22,7 +22,7 @@ function Barnav() {
                                     className="mx-2"
                                     alt="logo"
                                     />
-                                    <Navbar.Brand href="#">Adidas</Navbar.Brand>
+                                    <Navbar.Brand >Adidas</Navbar.Brand>
                         </Link>
 
                         <Navbar.Toggle aria-controls="navbarScroll" />

@@ -40,7 +40,7 @@ function ItemDetail({item}) {
                     </Accordion>
                     
 
-                    <Card.Text><ItemCount stock={item.stock} initial={1} /></Card.Text>
+                    <Card ><ItemCount stock={item.stock} initial={1} /></Card>
                 </Card.Body>
             </Card>
         </div>

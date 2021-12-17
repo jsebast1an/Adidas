@@ -22,7 +22,8 @@ function ItemCount({stock, initial}) {
     }
 
     const onAdd = () => {
-        setBoton3(false)   
+        setBoton3(false)
+             
     }
 
     return (
