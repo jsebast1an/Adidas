@@ -4,7 +4,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { useEffect } from 'react';
 import {BrowserRouter, Routes, Route} from "react-router-dom"
-
+import { CartContextProvider } from './context/CartContext';
 
 
 /* BOOTSTRAP AND AOS */
@@ -21,21 +21,25 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
-      <>
+    <CartContextProvider>
+        <BrowserRouter>
+          <>
 
-        <Barnav />
+            <Barnav />
 
-        <Routes>
-          <Route exact path="/" element={ <ItemListContainer /> } />
-          <Route exact path="/category/:categoryID" element={ <ItemListContainer /> } />
-          <Route exact path="/detail/:detailID" element={ <ItemDetailContainer /> } />
-          
-          <Route exact path="/cart" element={ <Cart></Cart> } />
-        </Routes>
+            <Routes>
+              <Route exact path="/" element={ <ItemListContainer /> } />
+              <Route exact path="/category/:categoryID" element={ <ItemListContainer /> } />
+              <Route exact path="/detail/:detailID" element={ <ItemDetailContainer /> } />
+              
+              <Route exact path="/cart" element={ <Cart></Cart> } />
+            </Routes>
 
-      </>
-    </BrowserRouter>
+          </>
+
+        </BrowserRouter>
+
+    </CartContextProvider>
   );
 }
 

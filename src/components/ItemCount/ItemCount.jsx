@@ -2,15 +2,15 @@ import Button from 'react-bootstrap/Button';
 import CambioBtn from '../Bootstrap/CambioBtn';
 import {useState} from "react";
 import {TercerBoton} from "../Bootstrap/CambioBtn"
+import { useCartContext } from '../../context/CartContext';
 
 
+function ItemCount({stock, initial, item}) {
 
-
-function ItemCount({stock, initial}) {
-
-    
     const [boton3, setBoton3] = useState(true)
     const [span, setSpan] = useState(initial)
+
+    const { cartList, addItem } = useCartContext()
 
 
     const sumar = () => {
@@ -22,9 +22,17 @@ function ItemCount({stock, initial}) {
     }
 
     const onAdd = () => {
-        setBoton3(false)
-             
+        
+
+        setBoton3(false)    
+        addItem({...item, cantidad: span})
+        
     }
+     console.log(cartList)
+
+    
+
+
 
     return (
         <div>
