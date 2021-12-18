@@ -28,11 +28,11 @@ function App() {
             <Barnav />
 
             <Routes>
-              <Route exact path="/" element={ <ItemListContainer /> } />
+              <Route exact path="/"                     element={ <ItemListContainer /> } />
               <Route exact path="/category/:categoryID" element={ <ItemListContainer /> } />
-              <Route exact path="/detail/:detailID" element={ <ItemDetailContainer /> } />
-              
-              <Route exact path="/cart" element={ <Cart></Cart> } />
+
+              <Route exact path="/detail/:detailID"     element={ <ItemDetailContainer /> } />
+              <Route exact path="/cart"                 element={ <Cart></Cart> } />
             </Routes>
 
           </>

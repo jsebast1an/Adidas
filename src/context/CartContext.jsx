@@ -35,9 +35,9 @@ export const CartContextProvider = ({children}) => {
         if (index > -1) {
             const newItem = {...item, cantidad: item.cantidad - 1}
 
-            cartList.splice(index, 1);
-
+            
             if (item.cantidad > 1) {
+                cartList.splice(index, 1);
                 
                 setCartList([...cartList, newItem])
             } else {
@@ -51,13 +51,22 @@ export const CartContextProvider = ({children}) => {
 
     }
     
+    function emptyCart () {
+        setCartList([])
+    }
 
+    const cartSpan = cartList.length
+
+    const cartTotal = cartList.reduce( (acc, item) => acc = acc + (item.precio * item.cantidad), 0)
 
     return (
         <CartContext.Provider value={{cartList, 
                                     setCartList,   
                                     addItem,
-                                    removeItem }}>
+                                    removeItem,
+                                    emptyCart,
+                                    cartSpan,
+                                    cartTotal }}>
             {children}
         </CartContext.Provider>
     )
