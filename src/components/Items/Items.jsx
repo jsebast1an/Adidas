@@ -1,6 +1,7 @@
 import Card from "react-bootstrap/Card"
 import Button from "react-bootstrap/Button"
 import {Link} from "react-router-dom"
+import {BsArrowRightCircle} from "react-icons/bs"
 
 
 function Items({prod}) {
@@ -15,7 +16,7 @@ function Items({prod}) {
                     <Card.Text >Precio: {prod.precio} ARS</Card.Text>
                     
                     <Link to={`/detail/${prod.id}`}>
-                        <Button variant="primary">Detalles del producto</Button>
+                        <Button variant="primary">Product detail <BsArrowRightCircle /> </Button>
                     </Link>
           
                 </Card.Body>

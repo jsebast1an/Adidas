@@ -1,7 +1,7 @@
 import Card from "react-bootstrap/Card"
-import ListGroupItem from "react-bootstrap/ListGroupItem"
-import ListGroup from "react-bootstrap/ListGroup"
 import Accordion from "react-bootstrap/Accordion"
+import ListGroup from "react-bootstrap/ListGroup"
+import ListGroupItem from "react-bootstrap/ListGroupItem"
 
 import ItemCount from "../ItemCount/ItemCount"
 import "./ItemDetail.css"
@@ -14,14 +14,11 @@ function ItemDetail({item}) {
                 <Card.Img variant="top" src={item.img} />
                 <Card.Body>
                     <Card.Title as="h3">{item.nombre}</Card.Title>
-                    <Card.Text>
-                        {item.detail}
-                    </Card.Text>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
-                    <ListGroupItem><Card.Title >Precio: {item.precio} ARS </Card.Title></ListGroupItem>
-                    <ListGroupItem>Estado: {item.year}</ListGroupItem>
-                    <ListGroupItem>Talle: {38}</ListGroupItem>
+                    <ListGroupItem><Card.Title >Price: {item.precio} ARS </Card.Title></ListGroupItem>
+                    <ListGroupItem>Year: {item.year}</ListGroupItem>
+                    <ListGroupItem>Size: {38}</ListGroupItem>
                 </ListGroup>
             </Card>
 
@@ -29,9 +26,14 @@ function ItemDetail({item}) {
                 <Card.Header as="h3">DETALLES</Card.Header>
 
                 <Card.Body>
+
+                <Card.Text as="h6">
+                        {item.detail}
+                </Card.Text>
+
                 <Accordion className="my-3">
                     <Accordion.Item eventKey="0">
-                        <Accordion.Header>Tabla talles</Accordion.Header>
+                        <Accordion.Header>Size's table</Accordion.Header>
                         <Accordion.Body>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 

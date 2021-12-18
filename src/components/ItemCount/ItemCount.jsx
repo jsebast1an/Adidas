@@ -37,7 +37,7 @@ function ItemCount({stock, initial, item}) {
     return (
         <div>
 
-            <div className="d-grid gap-2">
+            <div className="d-grid gap-2 m-1">
                 <Button variant="primary" size="lg" onClick={sumar}>            
                     +
                 </Button>

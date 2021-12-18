@@ -1,13 +1,13 @@
 import {useState} from "react";
 import {Link} from "react-router-dom"
-import {BsCheck} from "react-icons/bs";
+import {BsCheck, BsArrowLeft} from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import Button from "react-bootstrap/Button"
 import "./CambioBtn.css"
 
 const PrimerBoton = ({primerCambio}) => {
     return  (<Button variant="dark" size="lg" onClick={primerCambio}>
-                    Agregar
+                    Add cart
                 </Button>
     )
 }
@@ -15,7 +15,7 @@ const PrimerBoton = ({primerCambio}) => {
 const SegundoBoton = ({onAdd}) => {
     return (
     <Button variant="warning" size="lg" onClick={onAdd}>
-                    ¿Confirmas?
+                    ¿Are you sure?
                 </Button>
     )
 }
@@ -23,10 +23,18 @@ const SegundoBoton = ({onAdd}) => {
 export const TercerBoton = () => {
     return (
         <>
-                <Button variant="success" size="lg" className="hvr-buzz-out" >  Confirmado <BsCheck /></Button>
-            <Link to="/cart">
-                <Button variant="warning"  className="hvr-buzz-out" >  Ir al carrito <FaShoppingCart /></Button>
-            </Link>
+                <Button variant="success" size="lg" className="hvr-buzz-out" >  Added to cart <BsCheck /></Button>
+                
+                <div>
+
+                    <Link to="/">
+                        <Button variant="danger"  className="hvr-buzz-out mb-3 mx-1" > <BsArrowLeft /> Products </Button>
+                    </Link>
+                    <Link to="/cart">
+                        <Button variant="warning"  className="hvr-buzz-out mb-3" >  Checkout cart <FaShoppingCart /></Button>
+                    </Link>
+
+                </div>
         </>
         )
     

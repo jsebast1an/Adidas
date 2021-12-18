@@ -41,7 +41,7 @@ function ItemListContainer() {
                 {   
                     loading ? 
                     <div className="m-2">
-                        <h2><Spinner animation="border" variant="success" />Cargando</h2>
+                        <h2><Spinner animation="border" variant="success" />Loading</h2>
                     </div> :
 
                     <div>

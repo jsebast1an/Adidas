@@ -1,9 +1,9 @@
 import Table from "react-bootstrap/Table";
-import { useCartContext } from '../../context/CartContext';
 import Button from "react-bootstrap/Button";
-import { BsTrashFill } from "react-icons/bs";
 import Formu from "../Formu/Formu";
 import {Link} from "react-router-dom"
+import { BsTrashFill, BsArrowRightCircleFill } from "react-icons/bs";
+import { useCartContext } from '../../context/CartContext';
 
 function Cart() { 
 
@@ -14,8 +14,8 @@ function Cart() {
         { cartSpan === 0  ? 
             <div className="text-center container mt-4" data-aos="fade-right">
                 <div data-aos="flip-left">
-                        <h2>¡No tienes items agregados a tu carrito!</h2> 
-                        <Link to="/"><Button> Ir a la tienda</Button></Link>
+                        <h2>¡The cart is empty!</h2> 
+                        <Link to="/"><Button> Go shopping <BsArrowRightCircleFill /> </Button></Link>
                 </div>
             </div>
 

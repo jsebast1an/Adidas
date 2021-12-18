@@ -1,4 +1,5 @@
 /* COMPONENTS */
+import Cart from './components/Cart/Cart';
 import Barnav from './components/Navbar/BarNav';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
@@ -11,7 +12,6 @@ import { CartContextProvider } from './context/CartContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
-import Cart from './components/Cart/Cart';
 
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
               <Route exact path="/category/:categoryID" element={ <ItemListContainer /> } />
 
               <Route exact path="/detail/:detailID"     element={ <ItemDetailContainer /> } />
-              <Route exact path="/cart"                 element={ <Cart></Cart> } />
+              <Route exact path="/cart"                 element={ <Cart /> } />
             </Routes>
 
           </>
