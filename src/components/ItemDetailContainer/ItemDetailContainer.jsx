@@ -1,9 +1,9 @@
-import getItems from "../getItems"
 import ItemDetail from "../ItemDetail/ItemDetail"
 
 /* HOOKS */
 import {useState, useEffect} from "react"
 import {useParams} from "react-router-dom"
+import { getFireStore } from "../../services/getFireStore"
  
 
 
@@ -15,21 +15,11 @@ function ItemDetailContainer() {
 
     useEffect(() => {
 
-        if (detailID) {
+        const fStoreData = getFireStore()
 
-            getItems
-            .then(res => setProducts(res.find(prod => prod.id === parseInt(detailID)  )) )
-            .catch(err => console.log(err))
+            fStoreData.collection("items").doc(detailID).get()
+            .then(res => setProducts({id: res.id, ...res.data()}))
             .finally(setLoading(false))
-
-        } else {
-
-            getItems
-            .then(res => setProducts(res) )
-            .catch(err => console.log(err))
-            .finally(setLoading(false))
-            
-        }
 
     }, [detailID])
 
@@ -40,7 +30,7 @@ function ItemDetailContainer() {
     return (
         <div>
             { loading ? <div className="text-center">
-            <               h2> Cargando </h2>
+            <               h2> Loading... </h2>
                         </div> :
                     <ItemDetail
                         item={products}

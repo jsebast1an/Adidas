@@ -28,10 +28,10 @@ export const TercerBoton = () => {
                 <div>
 
                     <Link to="/">
-                        <Button variant="danger"  className="hvr-buzz-out mb-3 mx-1" > <BsArrowLeft /> Products </Button>
+                        <Button variant="danger"  className="hvr-buzz-out mx-1" > <BsArrowLeft /> Products </Button>
                     </Link>
                     <Link to="/cart">
-                        <Button variant="warning"  className="hvr-buzz-out mb-3" >  Checkout cart <FaShoppingCart /></Button>
+                        <Button variant="warning"  className="hvr-buzz-out" >  Checkout cart <FaShoppingCart /></Button>
                     </Link>
 
                 </div>

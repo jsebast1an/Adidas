@@ -1,5 +1,4 @@
 import ItemList from '../ItemList/ItemList'
-import {getItems} from "../getItems"
 import Spinner from "react-bootstrap/Spinner"
 import "./ItemListContainer.css"
 import Main from '../Bootstrap/Main'
@@ -7,6 +6,7 @@ import Main from '../Bootstrap/Main'
 /* HOOKS */
 import {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
+import { getFireStore } from '../../services/getFireStore'
 
 
 
@@ -17,20 +17,21 @@ function ItemListContainer() {
     const {categoryID} = useParams()
 
     useEffect(() => {
-            if (categoryID) {
+        const fStoreData = getFireStore()
 
-                getItems
-                .then(res => setProducts(res.filter(prod => prod.type === categoryID)))
-                .catch(err => console.log("Error: " + err))
-                .finally(setLoading(false))
-                
-            } else {
-                getItems
-                .then(res => setProducts(res))
-                .catch(err => console.log("Error: " + err))
-                .finally(setLoading(false))
-                
-            }
+        if (categoryID) {
+            
+            fStoreData.collection("items").where("type", "==", categoryID).get()
+            .then(res => setProducts( res.docs.map( prod => ({id: prod.id, ...prod.data()} )) ))
+            .catch(err => console.log(err))
+            .finally(setLoading(false))
+        } else {
+            fStoreData.collection("items").get()
+            .then(res => setProducts( res.docs.map( prod => ( {id:prod.id, ...prod.data()} ) ) ))
+            .catch(err => console.log(err))
+            .finally(setLoading(false))
+            
+        }
         
     },[categoryID])
 
