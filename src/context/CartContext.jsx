@@ -1,12 +1,15 @@
 import { createContext, useState, useContext } from "react"
 
+
+
+const CartContext = createContext([])
+
 export function useCartContext() {
     return (
         useContext(CartContext)
     )
 } 
 
-export const CartContext = createContext([])
 
 export const CartContextProvider = ({children}) => {
 
@@ -14,7 +17,7 @@ export const CartContextProvider = ({children}) => {
 
     function addItem (item) {
 
-        const index = cartList.findIndex(i => i.id === item.id)//pos    -1
+        const index = cartList.findIndex(i => i.id === item.id)
   
         if (index > -1) {
           const oldQy = cartList[index].cantidad
@@ -60,6 +63,21 @@ export const CartContextProvider = ({children}) => {
 
     const cartTotal = cartList.reduce( (acc, item) => acc = acc + (item.precio * item.cantidad), 0)
 
+    function getOrder() {
+        const order = {}
+
+        order.buyer = {name:"Fede", email:"j@gmail.com", cellphone:12312312}
+        order.items = cartList.map( item => {
+            const id = item.id
+            const name = item.nombre
+            const price = item.precio * item.cantidad
+            return {id, name, price}
+        } )
+        order.total = cartTotal
+
+        console.log(order)
+    }
+
     return (
         <CartContext.Provider value={{cartList, 
                                     setCartList,   
@@ -67,7 +85,8 @@ export const CartContextProvider = ({children}) => {
                                     removeItem,
                                     emptyCart,
                                     cartSpan,
-                                    cartTotal }}>
+                                    cartTotal,
+                                    getOrder }}>
             {children}
         </CartContext.Provider>
     )
