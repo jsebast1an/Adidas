@@ -2,12 +2,12 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Formu from "../Formu/Formu";
 import {Link} from "react-router-dom"
-import { BsTrashFill, BsArrowRightCircleFill, BsCheck2 } from "react-icons/bs";
+import { BsTrashFill, BsArrowRightCircleFill } from "react-icons/bs";
 import { useCartContext } from '../../context/CartContext';
 
 function Cart() { 
 
-    const {cartList, removeItem, emptyCart, cartSpan, cartTotal, getOrder} = useCartContext()
+    const {cartList, removeItem, emptyCart, cartSpan, cartTotal} = useCartContext()
     
     return (
         <div>
@@ -51,7 +51,7 @@ function Cart() {
                             </Table>
                             <h4> Total: {cartTotal}  ARS </h4>
                                 <Button className="mx-2" variant="danger" onClick={emptyCart}>Empty cart <BsTrashFill /></Button>
-                                <Button className="mx-2" variant="success" onClick={getOrder}>Order <BsCheck2 /></Button>
+                                
                     </div>
 
 
