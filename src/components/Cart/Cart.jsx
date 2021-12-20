@@ -43,7 +43,7 @@ function Cart() {
                                                 <td>{prod.nombre}</td>
                                                 <td>{prod.year}</td>
                                                 <td>{prod.precio * prod.cantidad}</td>
-                                                <td><Button variant="danger" onClick={() => {removeItem(prod)}} > <BsTrashFill /></Button></td>
+                                                <td><Button variant="danger" onClick={() => {removeItem(prod.id)}} > <BsTrashFill /></Button></td>
                                                 </tr>
                                             )
                                 }

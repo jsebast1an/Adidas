@@ -1,5 +1,6 @@
 import { createContext, useState, useContext } from "react"
-
+import { getFireStore } from "../services/getFireStore"
+import firebase from "firebase"
 
 
 const CartContext = createContext([])
@@ -31,27 +32,7 @@ export const CartContextProvider = ({children}) => {
     }
     
     function removeItem (item) {
-        const index = cartList.findIndex(i => i.id === item.id)
-        console.log(index)
-        console.log(item)
-        
-        if (index > -1) {
-            const newItem = {...item, cantidad: item.cantidad - 1}
-
-            
-            if (item.cantidad > 1) {
-                cartList.splice(index, 1);
-                
-                setCartList([...cartList, newItem])
-            } else {
-                setCartList(cartList.filter((i) => i.id !== item.id));
-            }
-            console.log(newItem)
-            
-        } else {
-            setCartList([...cartList])
-        }
-
+        setCartList(cartList.filter((i) => i.id !== item))
     }
     
     function emptyCart () {
@@ -73,9 +54,19 @@ export const CartContextProvider = ({children}) => {
             const price = item.precio * item.cantidad
             return {id, name, price}
         } )
+        order.date = firebase.firestore.Timestamp.fromDate( new Date ())
         order.total = cartTotal
 
         console.log(order)
+
+        /* ADD ORDER IN FIREBASE */
+        const fStoreData = getFireStore()
+
+        fStoreData.collection("orders").add(order)
+        .then(res => console.log(res))
+        .catch(err => console.log(err)) 
+
+
     }
 
     return (

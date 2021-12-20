@@ -1,7 +1,7 @@
 import ItemList from '../ItemList/ItemList'
 import Spinner from "react-bootstrap/Spinner"
-import "./ItemListContainer.css"
 import Main from '../Bootstrap/Main'
+import "./ItemListContainer.css"
 
 /* HOOKS */
 import {useState, useEffect} from 'react'
