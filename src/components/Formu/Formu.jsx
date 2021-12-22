@@ -16,7 +16,8 @@ function Formu() {
     const {cartList, setCartList, cartTotal} = useCartContext()
 
     const [name, setName] = useState("")
-    const [email, setEmail] = useState("")
+    const [email, setEmail] = useState("email")
+    const [email2, setEmail2] = useState("verification")
     const [cellphone, setCellphone] = useState("")
     const [orderId, setOrderId] = useState("")
 
@@ -64,6 +65,8 @@ function Formu() {
                 <Form.Group className="m-3" controlId="formGroupEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" value={email} onChange={ (e) => setEmail(e.target.value)} />
+                    <Form.Label>Email verification</Form.Label>
+                    <Form.Control type="email" placeholder="Enter email" value={email2} onChange={ (e) => setEmail2(e.target.value)} />
                 </Form.Group>
 
                 <Form.Group className="m-3" controlId="formGroupPassword">
@@ -79,7 +82,13 @@ function Formu() {
                     </Row>
                 </Form.Group>
 
-                <Button className="mx-2" variant="success" onClick={getOrder}>Order <BsCheck2 /></Button>
+                {
+                    email === email2 ?
+                    <Button className="mb-2" variant="success" onClick={getOrder}>Order <BsCheck2 /></Button> 
+                    :
+                    <Button className="mb-2" variant="danger" disabled> Check email <BsCheck2 /></Button>
+                }
+                
 
             </Form>
 
