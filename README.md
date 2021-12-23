@@ -6,7 +6,7 @@ Cada producto tiene su detalle y el almacenamiento de datos es en firebase.
 
 ## Video de funcionalidad
 Encontrarás la aplicación web protagonizando una compra por un buyer random. La UX la hice con la calidad como me gustaría que me trataran a mi. Algo simple y rápido. Al estar en constante aprendizaje, lo mas seguro es que el sitio estará en constante mejoramiento.
-Google Drive: 
+Google Drive: https://drive.google.com/drive/folders/1aByT0QbWIe_kf7ACXaZ0KfWfGF161Dh3?usp=sharing
 ## Librerías usadas
 - BOOTSTRAP - Me parece una de las librerías más fácil de usar. Tanto en React JS como en HTML, me encanta la estética y la sobriedad de los componentes.
 - AOS - Otras de las librerías simples y sencillas pero sutiles.
