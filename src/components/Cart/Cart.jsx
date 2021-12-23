@@ -2,8 +2,8 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Formu from "../Formu/Formu";
 import {Link} from "react-router-dom"
-import { BsTrashFill, BsArrowRightCircleFill } from "react-icons/bs";
 import { useCartContext } from '../../context/CartContext';
+import { BsTrashFill, BsArrowRightCircleFill, BsArrowLeft } from "react-icons/bs";
 
 function Cart() { 
 
@@ -50,6 +50,11 @@ function Cart() {
                                 </tbody>
                             </Table>
                             <h4> Total: {cartTotal}  ARS </h4>
+
+                                <Link to="/">
+                                    <Button className="mx-2" variant="success"> <BsArrowLeft /> More products </Button>
+                                </Link>
+
                                 <Button className="mx-2" variant="danger" onClick={emptyCart}>Empty cart <BsTrashFill /></Button>
                                 
                     </div>

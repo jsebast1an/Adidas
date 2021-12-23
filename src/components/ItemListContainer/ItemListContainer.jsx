@@ -29,7 +29,9 @@ function ItemListContainer() {
             fStoreData.collection("items").get()
             .then(res => setProducts( res.docs.map( prod => ( {id:prod.id, ...prod.data()} ) ) ))
             .catch(err => console.log(err))
-            .finally(setLoading(false))
+            .finally(setTimeout(() => {
+                setLoading(false) 
+            }, 100)  )
             
         }
         
@@ -42,7 +44,7 @@ function ItemListContainer() {
                 {   
                     loading ? 
                     <div className="m-2">
-                        <h2><Spinner animation="border" variant="success" />Loading</h2>
+                        <h2><Spinner animation="border" variant="success" />Loading...</h2>
                     </div> :
 
                     <div>
