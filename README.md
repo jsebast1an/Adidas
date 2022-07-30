@@ -14,5 +14,4 @@ Encontrarás la aplicación web protagonizando una compra por un buyer random. L
 - REACT-ICONS - Clave sus diseños.
 - FIREBASE - Almacenamiento de los datos de la compra.
 
-
-
+NO ACTUALIZADO DESPUES DE PRESENTAR
